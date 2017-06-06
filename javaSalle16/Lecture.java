@@ -7,6 +7,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
+// LISTE DE PAYS SOUS LA FORME D'UN TABLEAU
+private Pays[] pays ;
 
 //CREATION DE LA CLASSE LECTURE
 public class Lecture 
@@ -28,6 +30,7 @@ public class Lecture
 			// PREPARATION DE LA LECTURE DU FICHIER SOURCE ENTRE EN ARGUMENT
 			BufferedReader tamponLecture = new BufferedReader(new FileReader(Carte)) ;
 			String ligne ;
+			int index = 0 ;
 			
 			// LECTURE DU FICHIER SOURCE
 			while ((ligne = tamponLecture.readLine()) != null)
@@ -44,6 +47,10 @@ public class Lecture
 				String xmax = donnee.nextToken() ;
 				String ymax = donnee.nextToken() ;
 				System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
+				
+				this.Pays[index] = new Pays(nom, xmin, ymin, xmax, ymax) ;
+				
+				index ++ ;
 				
 				// CREATION D'UNE NOUVELLE INSTANCE DE LA CLASSE "PAYS A PARTIR DES ARGUMENTS RECUPERES DU FICHIER SOURCE "CARTE"
 				// new Pays(String nom, int xmin, int, ymin, int xmax, int ymax) ;
