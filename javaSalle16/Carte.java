@@ -1,5 +1,7 @@
 package javaSalle16;
 
+// test Francois est-ce que tu me recois ???
+
 public class Carte {
 
 	private Pays[] pays;
