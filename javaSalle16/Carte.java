@@ -12,7 +12,6 @@ import java.util.StringTokenizer;
 public class Carte 
 {
 	private Pays[] pays;
-	public Pays[] paysVoisins;
 	
 	public Carte()
 	{
@@ -135,22 +134,30 @@ public class Carte
 	
 	public boolean colorier (Pays pays)
 	{
-		paysVoisins = listerVoisins(pays) ;
+		public Pays[] paysVoisins = listerVoisins(pays) ;
+		
+		// ON PARCOURT LA LISTE DES PAYS VOISINS
 		for ( Pays paysVoisin : paysVoisins )
 		{
+			// SI LE PAYS VOISIN EST DEJA COLORIE ON ENLEVE SA COULEUR DE LA PALETTE DES COULEURS DISPOS
 			if ( paysVoisin.getdejaColorie == true )
 				palette.remove(paysVoisin.getCouleur); 
 		}
 		
+		// S'IL Y A DES COULEURS POSSIBLES DANS LA PALETTE, ON COLORIE LE 
+		// PAYS AVEC LA PREMIERE COULEUR DISPONIBLE ET ON RENVOIE TRUE
+		if (pays.getPaletteDisponible.length != 0)
+		{
+			pays.setCouleur(pays.getPaletteDisponible[0]);
+			pays.setDejaColorie(true) ;
+			return true ;
+		}
 		
-//	pour r dans pays_voisin, si r.dejacolorie == true ;
-//	this.palette.remove(r.color);
-//	retruen false ;
-//	
-//	sinon p.couleur = palettedispo[]
-//			p.dejacolorie = true ;
-	
-	// si p.palette.dispo vide
+		// S'IL N'Y A PAS DE COULEUR DISPONIBLE, ON RENVOIE FALSE
+		else
+		{
+			return false;
+		}
 	}
 	
 
