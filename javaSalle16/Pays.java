@@ -7,15 +7,25 @@ public class Pays
 	private String nom;
 	private int xmin, ymin, xmax, ymax;
 	private int xminv, yminv, xmaxv, ymaxv;
-	private Color couleur;
-	private boolean dejaColorie ;
+	private Color couleur; /*getter */
+	private boolean dejaColorie ; /*getter */
 	private Palette paletteDisponible;
 
-	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
+	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-mï¿½me */
 		{
-		boolean result ;
+		boolean result ; 
+		this.xmin = xmin;
+		this.ymin = ymin;
+		this.xmax = xmax;
+		this.ymax = ymax;
 		
-		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
+		paysATester.xmin = xminv;
+		paysATester.ymin = yminv;
+		paysATester.xmax = xmaxv;
+		paysATester.ymax = ymaxv;
+		
+		
+		/*comparaison de toutes les coordonnï¿½es entre elles, pour les x puis les y */
 		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
@@ -23,7 +33,6 @@ public class Pays
 				{
 				result = true ;
 				}
-
 		elseif (	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
@@ -46,13 +55,16 @@ public class Pays
 			 this.xmax = xmax;
 			 this.ymax = ymax;
 		}
-	
-	
-	/*---------------------------------------*/
+
+	public boolean getDejaColorie()
+	{
+		return dejaColorie ;
+	}
+
 	
 	public static void main(String[] args) 
 	{
-		// à compléter
+		// ï¿½ complï¿½ter
 
 	}
 
