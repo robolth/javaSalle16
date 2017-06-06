@@ -20,6 +20,10 @@ public class Pays
 			 
 		}
 
+	public boolean getDejaColorie()
+	{
+		return dejaColorie ;
+	}
 	
 	public static void main(String[] args) 
 	{

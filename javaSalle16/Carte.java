@@ -138,7 +138,7 @@ public class Carte
 		for ( Pays paysVoisin : paysVoisins )
 		{
 			if ( paysVoisin.getdejaColorie == true )
-				palette.remove(getCouleur(paysVoisin)); 
+				palette.remove(paysVoisin.getCouleur); 
 		}
 		
 		
