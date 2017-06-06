@@ -1,26 +1,92 @@
 package javaSalle16;
 
-public class Carte {
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.StringTokenizer;
+
+public class Carte 
+{
 
 	private Pays[] pays;
 	
-	public Carte(){
+	public Carte()
+	{
 		pays = new Pays[0];		
 	}
+
 	
-	public Pays[] listerVoisins(Pays p){
+	
+// ********** DEBUT METHODE LECTURE ***********
+	
+	// DEFINITION DES PARAMETRES UTILISES PAR LA METHODE LECTURE
+	private String Carte ;
+	private String CartePeinte ;
+
+	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
+	public void Lecture(String Carte, String CartePeinte) throws IOException
+	{
+		this.Carte = Carte ;
+		this.CartePeinte = CartePeinte ;
+	
+		// VERIFICATION QUE LE FICHIER EXISTE (TRY + CATCH)
+		try
+		{
+			// PREPARATION DE LA LECTURE DU FICHIER SOURCE ENTRE EN ARGUMENT
+			BufferedReader tamponLecture = new BufferedReader(new FileReader(Carte)) ;
+			String ligne ;
+			
+			// INITIALISATION DE L'INDEX DU TABLEAU "PAYS"
+			int index = 0 ;
+			
+			// LECTURE DU FICHIER SOURCE
+			while ((ligne = tamponLecture.readLine()) != null)
+			{
+				// UTILISATION DU SEPARATEUR " " POUR RECUPERER LES DIFFERENTS ELEMENTS
+				StringTokenizer donnee = new StringTokenizer(ligne," ") ;
+				
+				// RECUPERATION DU NOM ET DES COORDONNEES
+				String nom = donnee.nextToken() ;
+				String xmin = donnee.nextToken() ;
+				String ymin = donnee.nextToken() ;
+				String xmax = donnee.nextToken() ;
+				String ymax = donnee.nextToken() ;
+				//System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
+				
+				// CREATION D'UNE INSTANCE PAYS DANS LA CASE INDEX DU TABLEAU "PAYS"
+				this.Pays[index] = new Pays(nom, xmin, ymin, xmax, ymax) ;
+				index ++ ;
+			}
+			tamponLecture.close() ;
+		}
+		
+		// AFFICHAGE D'UN MESSAGE D'ERREUR SI LE FICHIER EN ENTREE N'EXISTE PAS
+		catch (FileNotFoundException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+// ********** FIN METHODE LECTURE ***********
+	
+	
+	
+	public Pays[] listerVoisins(Pays p)
+	{
 		
 		int index = 0;
 		
 		Pays[] result = new Pays[];
 		
-		for(Pays q:pays){
-			if(p.estVoisin(q)){
+		for(Pays q:pays)
+		{
+			if(p.estVoisin(q))
+			{
 				result[index] = q;
 				index++;
 			}
 		}
-		
 		return result;
 		
 	}
