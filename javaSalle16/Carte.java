@@ -7,7 +7,7 @@ public class Carte {
 	private Pays[] pays;
 	
 	public Carte(){
-		pays = new Pays[];		
+		pays = new Pays[0];		
 	}
 	
 	public Pays[] listerVoisins(Pays p){
@@ -28,6 +28,28 @@ public class Carte {
 	}
 	
 	
+
+	
+	
+	
+	boolean peindre()
+	{
+		boolean result = false ;
+		for (int index = 0 ; index < pays.length ; i++)
+		{
+			if colorier(pays[index]) {}
+			else
+			{
+				pays[index].paletteDisponible.resetPalette;
+				pays[index-1].paletteDisponible.remove(pays[index-1].color);
+				pays[index-1].dejaColorie = false ;
+				index -= 2;
+			}
+		}
+		
+		
+		return 
+	}
 	
 	
 	
