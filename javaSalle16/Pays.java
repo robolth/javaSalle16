@@ -13,7 +13,7 @@ public class Pays
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{
-		boolean result ;
+		boolean result ; 
 		
 		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
 		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
