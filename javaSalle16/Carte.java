@@ -1,10 +1,13 @@
 package javaSalle16;
 
+import java.awt.Color;
+
 // test Francois est-ce que tu me recois ???
 
 public class Carte {
 
 	private Pays[] pays;
+	public Pays[] paysVoisins;
 	
 	public Carte(){
 		pays = new Pays[0];		
@@ -34,11 +37,19 @@ public class Carte {
 	
 	public boolean colorier (Pays pays)
 	{
-		// liste des pays voisins[]
-		// paysVoisins[indice]
+		Color couleurPays ;
+		paysVoisins = listerVoisins(pays) ;
+		for ( Pays paysVoisin : paysVoisins )
+		{
+			couleurPays=getCouleur(paysVoisin);
+			for ( Palette : pays.paletteDisponible )
+			{
+				if couleurPays == 
+			}
+				// paysVoisins[indice]
 	
 		// reduire palette(p)
-	
+		}
 //	pour r dans pays_voisin, si r.dejacolorie == true ;
 //	this.palette.remove(r.color);
 //	retruen false ;
@@ -47,7 +58,7 @@ public class Carte {
 //			p.dejacolorie = true ;
 	
 	// si p.palette.dispo vide
-
+	}
 	
 
 	
@@ -70,7 +81,6 @@ public class Carte {
 		
 		
 		return 
->>>>>>> branch 'master' of https://github.com/robolth/javaSalle16.git
 	}
 	
 	
