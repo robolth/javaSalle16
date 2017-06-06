@@ -46,12 +46,12 @@ public class Lecture
 				System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
 				
 				// CREATION D'UNE NOUVELLE INSTANCE DE LA CLASSE "PAYS A PARTIR DES ARGUMENTS RECUPERES DU FICHIER SOURCE "CARTE"
-				 // new Pays(String nom, int xmin, int, ymin, int xmax, int ymax) ;
+				// new Pays(String nom, int xmin, int, ymin, int xmax, int ymax) ;
 			}
 			tamponLecture.close() ;
 		}
 		
-		// AFFICHAGE D'UN MESSAGE D'ERREUR SI LE FICHIER N'EXISTE PAS
+		// AFFICHAGE D'UN MESSAGE D'ERREUR SI LE FICHIER EN ENTREE N'EXISTE PAS
 		catch (FileNotFoundException e)
 		{
 			System.out.println(e.getMessage());
