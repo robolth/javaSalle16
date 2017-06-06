@@ -32,12 +32,22 @@ public class Carte {
 // voisins, la fonction renvoie true. Si aucune couleur ne peut etre utilisee
 // elle renvoie false.
 	
-<<<<<<< HEAD
 	public boolean colorier (Pays pays)
 	{
-		// liste des pays voisins
-		
-=======
+		// liste des pays voisins[]
+		// paysVoisins[indice]
+	
+		// reduire palette(p)
+	
+//	pour r dans pays_voisin, si r.dejacolorie == true ;
+//	this.palette.remove(r.color);
+//	retruen false ;
+//	
+//	sinon p.couleur = palettedispo[]
+//			p.dejacolorie = true ;
+	
+	// si p.palette.dispo vide
+
 	
 
 	
