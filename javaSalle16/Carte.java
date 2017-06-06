@@ -1,7 +1,5 @@
 package javaSalle16;
 
-// test Francois est-ce que tu me recois ???
-
 public class Carte {
 
 	private Pays[] pays;
@@ -10,10 +8,9 @@ public class Carte {
 		pays = new Pays[0];		
 	}
 	
+	// renvoie un tableau des pays voisins du pays passé en argument
 	public Pays[] listerVoisins(Pays p){
-		
 		int index = 0;
-		
 		Pays[] result = new Pays[];
 		
 		for(Pays q:pays){
@@ -22,16 +19,14 @@ public class Carte {
 				index++;
 			}
 		}
-		
 		return result;
-		
 	}
 	
 	
 
 	
 	
-	
+	// colorie l'ensemble des pays de la carte
 	boolean peindre()
 	{
 		boolean result = false ;
