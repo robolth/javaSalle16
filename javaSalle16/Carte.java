@@ -1,17 +1,19 @@
 
-
+// IMPORT DES BIBLIOTHEQUES NECESSAIRES
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class CarteLocal 
+public class Carte 
 {
 
 	private Pays[] pays;
 	
-	public CarteLocal()
+	public Carte()
 	{
 		pays = new Pays[0];		
 	}
@@ -20,15 +22,14 @@ public class CarteLocal
 	
 // ********** DEBUT METHODE LECTURE ***********
 	
-	// DEFINITION DES PARAMETRES UTILISES PAR LA METHODE LECTURE
 	private String Carte ;
 
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
-	public void Lecture(String Carte) throws IOException
+	public boolean Lecture(String Carte) throws IOException
 	{
 		this.Carte = Carte ;
 	
-		// VERIFICATION QUE LE FICHIER EXISTE (TRY + CATCH)
+		// VERIFICATION QUE LE FICHIER SOURCE EXISTE (TRY + CATCH)
 		try
 		{
 			// PREPARATION DE LA LECTURE DU FICHIER SOURCE ENTRE EN ARGUMENT
@@ -52,22 +53,58 @@ public class CarteLocal
 				String ymax = donnee.nextToken() ;
 				//System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
 				
-				// CREATION D'UNE INSTANCE PAYS DANS LA CASE INDEX DU TABLEAU "PAYS"
+				// CREATION D'UNE INSTANCE PAYS DANS LA CASE N° "INDEX" DU TABLEAU "PAYS"
 				this.Pays[index] = new Pays(nom, xmin, ymin, xmax, ymax) ;
 				index ++ ;
 			}
+			
 			tamponLecture.close() ;
+			
+			return true ;
 		}
 		
 		// AFFICHAGE D'UN MESSAGE D'ERREUR SI LE FICHIER EN ENTREE N'EXISTE PAS
 		catch (FileNotFoundException e)
 		{
 			System.out.println(e.getMessage());
+			
+			return false ;
 		}
 	}
 
 // ********** FIN METHODE LECTURE ***********
 	
+
+	
+// ********** DEBUT METHODE ECRITURE ***********
+
+	private String CartePeinte ;
+
+	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
+	public boolean Ecriture(String CartePeinte)
+	{
+		this.CartePeinte = CartePeinte ;
+
+		// PREPARATION DE L'ECRITURE DANS UN FICHIER CIBLE ENTRE EN ARGUMENT
+		FileWriter resultat = new FileWriter(CartePeinte) ;
+		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
+					
+		// RECUPERATION DES PAYS A PARTIR DU TABLEAU "PAYS"
+		int index = 0 ;
+					
+		while (Pays[index])
+		{
+			tamponEcriture.write(nom + " " + xmin + " " + ymin + " " + xmax + " " + ymax + " " + couleur + '\n') ;
+			index ++ ;
+		}
+					
+		tamponEcriture.flush() ;
+		tamponEcriture.close() ;
+		
+		return true ;
+	}
+	
+// ********** FIN METHODE ECRITURE ***********
 	
 	
 	public Pays[] listerVoisins(Pays p)
