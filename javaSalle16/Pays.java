@@ -4,9 +4,9 @@ public class Pays
 {
 
 	
-	private String nom;
-	private int xmin, ymin, xmax, ymax;
-	private int xminv, yminv, xmaxv, ymaxv;
+	public String nom;
+	public int xmin, ymin, xmax, ymax;
+	public int xminv, yminv, xmaxv, ymaxv;
 	private Color couleur; /*getter */
 	private boolean dejaColorie ; /*getter */
 	private Palette paletteDisponible;
