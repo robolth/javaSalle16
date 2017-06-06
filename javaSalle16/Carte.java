@@ -37,19 +37,18 @@ public class Carte {
 	
 	public boolean colorier (Pays pays)
 	{
-		Color couleurPays ;
 		paysVoisins = listerVoisins(pays) ;
 		for ( Pays paysVoisin : paysVoisins )
 		{
-			couleurPays=getCouleur(paysVoisin);
-			for ( Palette : pays.paletteDisponible )
+//			couleurPays=getCouleur(paysVoisin);
+			if ( paysVoisin.getdejaColorie == true )
+			for ( Palette palette : pays.paletteDisponible )
 			{
-				if couleurPays == 
+				palette.remove(getCouleur(paysVoisin)); 
 			}
-				// paysVoisins[indice]
-	
-		// reduire palette(p)
 		}
+		
+		
 //	pour r dans pays_voisin, si r.dejacolorie == true ;
 //	this.palette.remove(r.color);
 //	retruen false ;
