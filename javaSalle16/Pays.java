@@ -13,7 +13,7 @@ public class Pays
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{
 		boolean result ;
-		/*Pays[i] PaysAtester */
+		/*Pays[i] paysAtester */
 		return result ;
 		}
 		
