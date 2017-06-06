@@ -40,12 +40,8 @@ public class Carte {
 		paysVoisins = listerVoisins(pays) ;
 		for ( Pays paysVoisin : paysVoisins )
 		{
-//			couleurPays=getCouleur(paysVoisin);
 			if ( paysVoisin.getdejaColorie == true )
-			for ( Palette palette : pays.paletteDisponible )
-			{
 				palette.remove(getCouleur(paysVoisin)); 
-			}
 		}
 		
 		
