@@ -127,10 +127,11 @@ public class Carte
 		
 	}
 
-// fonction qui cherche une couleur pour colorier un pays
-// si elle trouve une couleur qui n'est pas en conflit avec celles des pays
-// voisins, la fonction renvoie true. Si aucune couleur ne peut etre utilisee
-// elle renvoie false.
+// FONCTION QUI CHERCHE UNE COULEUR POUR COLORIER UN PAYS
+// SI ELLE TROUVE UNE COULEUR QUI N'EST PAS EN CONFLIT AVEC CELLES DES PAYS
+// VOISINS, LA FONCTION RENVOIE TRUE. SI AUCUNE COULEUR NE PEUT ETRE UTILISEE
+// ELLE RENVOIE FALSE.
+
 	
 	public boolean colorier (Pays pays)
 	{
