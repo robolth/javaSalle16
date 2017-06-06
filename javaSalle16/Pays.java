@@ -15,7 +15,6 @@ public class Pays
 		boolean result ;
 		/*Pays[i] paysAtester */
 		return result ;
-		
 		}
 		
 	public Pays(String nom, int xmin, int ymin, int xmax, int ymax)
