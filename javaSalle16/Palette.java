@@ -4,7 +4,7 @@ import java.awt.Color;
 
 public class Palette {
 
-	private Color[] couleurs;
+	public Color[] couleurs;
 
 	public Palette(){
 		
@@ -28,6 +28,15 @@ public class Palette {
 	
 	public void reset(){
 		couleurs = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
+	}
+	
+	public boolean contains(Color c){
+		for(Color d : couleurs) {
+			if(d == c){
+				return true;
+			}			
+		}		
+		return false;
 	}
 	
 	

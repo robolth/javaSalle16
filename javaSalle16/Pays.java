@@ -1,5 +1,7 @@
 package javaSalle16;
 
+import java.awt.Color;
+
 public class Pays 
 {
 
@@ -9,21 +11,15 @@ public class Pays
 	private int xminv, yminv, xmaxv, ymaxv;
 	private Color couleur; /*getter */
 	private boolean dejaColorie ; /*getter */
-	private Palette paletteDisponible;
+	public Palette paletteDisponible;
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-m�me */
 		{
-		boolean result ; 
-		this.xmin = xmin;
-		this.ymin = ymin;
-		this.xmax = xmax;
-		this.ymax = ymax;
-		
-		paysATester.xmin = xminv;
-		paysATester.ymin = yminv;
-		paysATester.xmax = xmaxv;
-		paysATester.ymax = ymaxv;
-		
+		boolean result = false; 
+		xminv = paysATester.xmin;
+		yminv = paysATester.ymin;
+		xmaxv = paysATester.xmax;
+		ymaxv = paysATester.ymax;
 		
 		/*comparaison de toutes les coordonn�es entre elles, pour les x puis les y */
 		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
@@ -33,21 +29,24 @@ public class Pays
 				{
 				result = true ;
 				}
-		elseif (	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+		else 
+		{
+			if(	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+		
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
 				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) )
 				{
 				result = true ;
 				}
-
-		return result ;
+		}
+			return result ;
 		}
 		
 	public Pays(String nom, int xmin, int ymin, int xmax, int ymax)
 		{
 			 Palette paletteDisponible=new Palette();
-			 Color couleur=this.paletteDisponible[0];
+			 Color couleur = this.paletteDisponible.couleurs[0];
 			 boolean dejaColorie = false ;
 			 this.nom=nom;
 			 this.xmin = xmin;
@@ -61,6 +60,23 @@ public class Pays
 		return dejaColorie ;
 	}
 
+	public Color getCouleur()
+	{
+		return couleur ;
+	}
+	
+	public void setDejaColorie(boolean b)
+	{
+		this.dejaColorie = b;
+	}
+
+	public void setCouleur(Color c)
+	{
+		if(this.paletteDisponible.contains(c)) {
+			this.couleur = c;
+		}				
+	}	
+	
 	
 	public static void main(String[] args) 
 	{

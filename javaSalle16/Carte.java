@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-public class Carte {
-
-=======
 // IMPORT DES BIBLIOTHEQUES NECESSAIRES
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -15,20 +11,13 @@ import java.util.StringTokenizer;
 
 public class Carte 
 {
->>>>>>> branch 'master' of https://github.com/robolth/javasalle16
 	private Pays[] pays;
 	
 	public Carte()
 	{
 		pays = new Pays[0];		
 	}
-
-	
-<<<<<<< HEAD
-	// renvoie un tableau des pays voisins du pays passÃ© en argument
-	public Pays[] listerVoisins(Pays p){
-=======
-	
+/*	
 // ********** DEBUT METHODE LECTURE ***********
 	
 	private String Carte ;
@@ -62,7 +51,7 @@ public class Carte
 				String ymax = donnee.nextToken() ;
 				//System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
 				
-				// CREATION D'UNE INSTANCE PAYS DANS LA CASE N° "INDEX" DU TABLEAU "PAYS"
+				// CREATION D'UNE INSTANCE PAYS DANS LA CASE Nï¿½ "INDEX" DU TABLEAU "PAYS"
 				this.Pays[index] = new Pays(nom, xmin, ymin, xmax, ymax) ;
 				index ++ ;
 			}
@@ -114,14 +103,12 @@ public class Carte
 	}
 	
 // ********** FIN METHODE ECRITURE ***********
-	
+	*/
 	
 	public Pays[] listerVoisins(Pays p)
 	{
-		
->>>>>>> branch 'master' of https://github.com/robolth/javasalle16
 		int index = 0;
-		Pays[] result = new Pays[];
+		Pays[] result = new Pays[0];
 		
 		for(Pays q:pays)
 		{
@@ -142,21 +129,23 @@ public class Carte
 	
 	public boolean colorier (Pays pays)
 	{
-		public Pays[] paysVoisins = listerVoisins(pays) ;
+		Pays[] paysVoisins = listerVoisins(pays) ;
 		
 		// ON PARCOURT LA LISTE DES PAYS VOISINS
 		for ( Pays paysVoisin : paysVoisins )
 		{
 			// SI LE PAYS VOISIN EST DEJA COLORIE ON ENLEVE SA COULEUR DE LA PALETTE DES COULEURS DISPOS
-			if ( paysVoisin.getdejaColorie == true )
-				palette.remove(paysVoisin.getCouleur); 
+			if ( paysVoisin.getDejaColorie() == true ) 
+			{
+				pays.paletteDisponible.remove(paysVoisin.getCouleur()); 
+			}
 		}
 		
 		// S'IL Y A DES COULEURS POSSIBLES DANS LA PALETTE, ON COLORIE LE 
 		// PAYS AVEC LA PREMIERE COULEUR DISPONIBLE ET ON RENVOIE TRUE
-		if (pays.getPaletteDisponible.length != 0)
+		if (pays.paletteDisponible.couleurs.length != 0)
 		{
-			pays.setCouleur(pays.getPaletteDisponible[0]);
+			pays.setCouleur(pays.paletteDisponible.couleurs[0]);
 			pays.setDejaColorie(true) ;
 			return true ;
 		}
@@ -175,18 +164,18 @@ public class Carte
 	boolean peindre()
 	{
 		boolean result = false ;
-		for (int index = 0 ; index < pays.length ; i++)
+		for (int index = 0 ; index < pays.length ; index++)
 		{
-			if colorier(pays[index]) 
+			if (colorier(pays[index]) )
 			{
 				result = true ;
 			}
 			else
 			{
 				result = false ;
-				pays[index].paletteDisponible.resetPalette;
-				pays[index-1].paletteDisponible.remove(pays[index-1].color);
-				pays[index-1].dejaColorie = false ;
+				pays[index].paletteDisponible.reset();
+				pays[index-1].paletteDisponible.remove(pays[index-1].getCouleur());
+				pays[index-1].setDejaColorie(false);
 				index -= 2;
 			}
 		}
