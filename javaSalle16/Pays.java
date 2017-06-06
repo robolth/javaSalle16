@@ -23,7 +23,6 @@ public class Pays
 				{
 				result = true ;
 				}
-
 		elseif (	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
