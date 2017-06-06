@@ -27,7 +27,6 @@ public class Pays
 			 this.ymin = ymin;
 			 this.xmax = xmax;
 			 this.ymax = ymax;
-			 
 		}
 	
 	
