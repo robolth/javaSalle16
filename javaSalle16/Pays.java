@@ -7,8 +7,8 @@ public class Pays
 	private String nom;
 	private int xmin, ymin, xmax, ymax;
 	private int xminv, yminv, xmaxv, ymaxv;
-	private Color couleur;
-	private boolean dejaColorie ;
+	private Color couleur; /*getter */
+	private boolean dejaColorie ; /*getter */
 	private Palette paletteDisponible;
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
