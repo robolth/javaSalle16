@@ -35,18 +35,20 @@ public class Carte {
 		boolean result = false ;
 		for (int index = 0 ; index < pays.length ; i++)
 		{
-			if colorier(pays[index]) {}
+			if colorier(pays[index]) 
+			{
+				result = true ;
+			}
 			else
 			{
+				result = false ;
 				pays[index].paletteDisponible.resetPalette;
 				pays[index-1].paletteDisponible.remove(pays[index-1].color);
 				pays[index-1].dejaColorie = false ;
 				index -= 2;
 			}
 		}
-		
-		
-		return 
+		return result ;
 	}
 	
 	
