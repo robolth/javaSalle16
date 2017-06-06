@@ -6,6 +6,7 @@ public class Pays
 	
 	private String nom;
 	private int xmin, ymin, xmax, ymax;
+	private int xminv, yminv, xmaxv, ymaxv;
 	private Color couleur;
 	private boolean dejaColorie ;
 	private Palette paletteDisponible;
@@ -14,6 +15,23 @@ public class Pays
 		{
 		boolean result ;
 		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
+		
+		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax)
+				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax)
+				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
+				|| 	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax) )
+				{
+				result = true ;
+				}
+
+		elseif (	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
+				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) )
+				{
+				result = true ;
+				}
+
 		return result ;
 		}
 		
