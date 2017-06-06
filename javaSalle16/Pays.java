@@ -13,7 +13,7 @@ public class Pays
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{
 		boolean result ;
-		/*Pays[i] paysAtester */
+		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
 		return result ;
 		}
 		
@@ -35,7 +35,7 @@ public class Pays
 	
 	public static void main(String[] args) 
 	{
-		// TODO Auto-generated method stub
+		// à compléter
 
 	}
 
