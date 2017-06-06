@@ -1,4 +1,4 @@
-package javaSalle16;
+
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -6,12 +6,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-public class Carte 
+public class CarteLocal 
 {
 
 	private Pays[] pays;
 	
-	public Carte()
+	public CarteLocal()
 	{
 		pays = new Pays[0];		
 	}
@@ -22,13 +22,11 @@ public class Carte
 	
 	// DEFINITION DES PARAMETRES UTILISES PAR LA METHODE LECTURE
 	private String Carte ;
-	private String CartePeinte ;
 
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
-	public void Lecture(String Carte, String CartePeinte) throws IOException
+	public void Lecture(String Carte) throws IOException
 	{
 		this.Carte = Carte ;
-		this.CartePeinte = CartePeinte ;
 	
 		// VERIFICATION QUE LE FICHIER EXISTE (TRY + CATCH)
 		try
