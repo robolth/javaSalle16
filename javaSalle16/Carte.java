@@ -1,3 +1,4 @@
+package javaSalle16;
 
 // IMPORT DES BIBLIOTHEQUES NECESSAIRES
 import java.awt.Color;

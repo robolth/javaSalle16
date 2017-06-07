@@ -5,7 +5,6 @@ import java.awt.Color;
 public class Pays 
 {
 
-	
 	private String nom;
 	private int xmin, ymin, xmax, ymax;
 	private int xminv, yminv, xmaxv, ymaxv;
@@ -13,7 +12,7 @@ public class Pays
 	private boolean dejaColorie ; /*getter */
 	public Palette paletteDisponible;
 
-	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-m�me */
+	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{
 		boolean result = false; 
 		xminv = paysATester.xmin;
@@ -21,7 +20,7 @@ public class Pays
 		xmaxv = paysATester.xmax;
 		ymaxv = paysATester.ymax;
 		
-		/*comparaison de toutes les coordonn�es entre elles, pour les x puis les y */
+		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
 		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
@@ -80,7 +79,7 @@ public class Pays
 	
 	public static void main(String[] args) 
 	{
-		// � compl�ter
+		// � compléter
 
 	}
 
