@@ -83,7 +83,7 @@ public class Parser
 		FileWriter resultat = new FileWriter(CartePeinte) ;
 		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
 		
-		// UTILISATION DE L'INDEX POUR L'ORDRE DE COLORIAGE
+		// UTILISATION DE L'INDEX POUR L'ORDRE DE COLORIAGE SUR LA CARTE
 		int indexColoriage = 0 ;
 						
 		// ECRITURE DANS LE FICHIER CIBLE POUR TOUS LES PAYS P SE TROUVANT DANS L'INSTANCE "PAYS"				
@@ -91,15 +91,18 @@ public class Parser
 		{
 			// TRANSFORMATION DE LA DONNEE COULEUR EN CODE COULEUR COMPREHENSIBLE PAR LA MACRO EXCEL
 			Color couleur = p.getCouleur() ;
+			System.out.print("couleur pays : " + couleur + '\n');
 			int codeCouleur = 0 ;
 
 			if (couleur == Color.red ) { codeCouleur = 1 ; } 
-			if (couleur == Color.blue ) { codeCouleur = 2 ; }
-			if (couleur == Color.yellow ) { codeCouleur = 3 ; }
-			if (couleur == Color.red ) { codeCouleur = 4 ; }
-			else { codeCouleur = 1 ; }
+			else if (couleur == Color.blue ) { codeCouleur = 2 ; }
+			else if (couleur == Color.yellow ) { codeCouleur = 3 ; }
+			else if (couleur == Color.green ) { codeCouleur = 4 ; }
+			else { codeCouleur = 0 ; }
 			
-			// ON DIVISE LES VALEURS PAR 10 AFIN DE RESPECTER LE FORMAT DE LA MACRO EXCEL ET ON AJOUTE UN INDEX D'ORDRE DE COLORIAGE			
+			System.out.print("code couleur pays " + p.getNom() + ": " + codeCouleur + '\n');
+			
+			// ON DIVISE LES VALEURS PAR 10 AFIN DE RESPECTER LE FORMAT DE LA MACRO EXCEL ET ON AJOUTE UN INDEX D'ORDRE DE COLORIAGE NECESSAIRE A LA MACRO			
 			tamponEcriture.write(p.getNom() + "	" + p.getXmin()/10 + " 	" + p.getYmin()/10 + " 	" + p.getXmax()/10 + " 	" + p.getYmax()/10 + " 	" + codeCouleur + " 	" + indexColoriage + '\n') ;
 			indexColoriage ++ ;
 		}
