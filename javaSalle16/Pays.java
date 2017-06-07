@@ -30,9 +30,11 @@ public class Pays
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
 				|| 	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax) 
-				|| 	(xminv == xmin && xminv == xmax && xmaxv == xmin && xmaxv == xmax)
+				|| 	(xminv == xmin && xminv < xmax && xmaxv > xmin && xmaxv == xmax)
 				|| 	(xminv == xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax)
 				|| 	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv == xmax)
+				||	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv == xmax)
+				||	(xminv == xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
 				)
 			{
 				result = true ;
@@ -45,9 +47,11 @@ public class Pays
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
 				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) 
-				|| 	(yminv == ymin && yminv == ymax && ymaxv == ymin && ymaxv == ymax)
+				|| 	(yminv == ymin && yminv < ymax && ymaxv > ymin && ymaxv == ymax)
 				|| 	(yminv == ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				|| 	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv == ymax)
+				||	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv == ymax)
+				||	(yminv == ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
 				)
 			{
 				result = true ;
