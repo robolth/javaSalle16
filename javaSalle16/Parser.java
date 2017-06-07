@@ -1,5 +1,6 @@
 package javaSalle16;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -14,9 +15,6 @@ public class Parser
 
 	public Parser () throws IOException
 	{
-	//	lecture("/src/Carte_18.txt") ;
-	//	ecriture("/src/CartePeinte_18.txt") ;
-		
 		carte = new Carte();
 	}
 	
@@ -35,13 +33,9 @@ public class Parser
 			// UTILISATION D'UNE VARIABLE POUR LES LIGNES DU FICHIER SOURCE
 			String ligne = "erreur" ;
 				
-
-				
 			// LECTURE DU FICHIER SOURCE
 			while ((ligne = tamponLecture.readLine()) != null)
 			{
-				
-
 				// UTILISATION DU SEPARATEUR " " POUR RECUPERER LES DIFFERENTS ELEMENTS
 				StringTokenizer donnee = new StringTokenizer(ligne," ") ;
 
@@ -51,6 +45,7 @@ public class Parser
 				String ymin = donnee.nextToken() ;
 				String xmax = donnee.nextToken() ;
 				String ymax = donnee.nextToken() ;
+				
 				// TRANSFORMATION DES COORDONNEES DE STRING A INT POUR ETRE COMPREHENSIBLE PAR LA CLASSE "PAYS"
 				int xm = Integer.parseInt(xmin) ;
 				int ym = Integer.parseInt(ymin) ;
@@ -59,11 +54,9 @@ public class Parser
 					
 				System.out.println("[PARSER] nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax) ;
 					
-				// CREATION D'UNE INSTANCE PAYS DANS LA CASE N� "INDEX" DU TABLEAU "PAYS"
-				
+				// CREATION D'UNE INSTANCE PAYS
 				Pays tempPays = new Pays(nom, xm, ym, xM, yM);
 				this.carte.ajouterPays(tempPays) ;
-
 			}
 				
 			tamponLecture.close() ;
@@ -89,16 +82,30 @@ public class Parser
 		// PREPARATION DE L'ECRITURE DANS UN FICHIER CIBLE ENTRE EN ARGUMENT
 		FileWriter resultat = new FileWriter(CartePeinte) ;
 		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
+		
+		// UTILISATION DE L'INDEX POUR L'ORDRE DE COLORIAGE
+		int indexColoriage = 0 ;
 						
 		// ECRITURE DANS LE FICHIER CIBLE POUR TOUS LES PAYS P SE TROUVANT DANS L'INSTANCE "PAYS"				
 		for (Pays p : this.carte.getPays())
 		{
-			tamponEcriture.write(p.getNom() + " " + p.getXmin() + " " + p.getYmin() + " " + p.getXmax() + " " + p.getYmax() + " " + p.getCouleur() + '\n') ;
+			// TRANSFORMATION DE LA DONNEE COULEUR EN CODE COULEUR COMPREHENSIBLE PAR LA MACRO EXCEL
+			Color couleur = p.getCouleur() ;
+			int codeCouleur = 0 ;
+
+			if (couleur == Color.red ) { codeCouleur = 1 ; } 
+			if (couleur == Color.blue ) { codeCouleur = 2 ; }
+			if (couleur == Color.yellow ) { codeCouleur = 3 ; }
+			if (couleur == Color.red ) { codeCouleur = 4 ; }
+			else { codeCouleur = 1 ; }
+			
+			// ON DIVISE LES VALEURS PAR 10 AFIN DE RESPECTER LE FORMAT DE LA MACRO EXCEL ET ON AJOUTE UN INDEX D'ORDRE DE COLORIAGE			
+			tamponEcriture.write(p.getNom() + "	" + p.getXmin()/10 + " 	" + p.getYmin()/10 + " 	" + p.getXmax()/10 + " 	" + p.getYmax()/10 + " 	" + codeCouleur + " 	" + indexColoriage + '\n') ;
+			indexColoriage ++ ;
 		}
 						
 		tamponEcriture.flush() ;
 		tamponEcriture.close() ;
-			
 		return true ;
 	}
 
