@@ -16,7 +16,7 @@ public class Pays
 
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
-		{
+		{		
 		boolean result = false; 
 		xminv = paysATester.xmin;
 		yminv = paysATester.ymin;
@@ -26,7 +26,7 @@ public class Pays
 		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
 		if ( yminv==ymax || ymaxv == ymin)
 		{
-		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
+			if 	(	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
 				|| 	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax) 
@@ -34,28 +34,29 @@ public class Pays
 				|| 	(xminv == xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax)
 				|| 	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv == xmax)
 				)
-				{
-				result = true ;
-				}
-		}
-		else 
-		{
-			if ( xminv==xmax || xmaxv == xmin)
 			{
-			if(	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+				result = true ;
+			}
+		}
 		
+		if ( xminv==xmax || xmaxv == xmin)
+		{
+			if	(	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
 				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) 
 				|| 	(yminv == ymin && yminv == ymax && ymaxv == ymin && ymaxv == ymax)
 				|| 	(yminv == ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				|| 	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv == ymax)
-					)
-				{
+				)
+			{
 				result = true ;
-				}
 			}
 		}
+	
+		
+			System.out.println(this.nom + ".estVoisin(" + paysATester.getNom() +") -> " + result);
+		
 			return result ;
 		}
 		

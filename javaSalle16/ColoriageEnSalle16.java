@@ -18,7 +18,7 @@ public class ColoriageEnSalle16 {
 			this.carte = parser.getCarte();
 			System.out.println("ColoriageEnSalle16 : génération de la carte terminée");
 			this.carte.peindre();
-			parser.ecriture(adresse + "_colorie");
+			parser.ecriture(adresse + "_colorie.txt");
 		
 		}
 		else 

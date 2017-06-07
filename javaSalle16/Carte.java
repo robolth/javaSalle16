@@ -50,7 +50,7 @@ public class Carte
 		Pays[] paysVoisins = listerVoisins(pays) ;
 		
 		
-		System.out.println( paysVoisins.length + " pays voisins");
+		System.out.println( pays.getNom() + " a " + paysVoisins.length + " pays voisins");
 		
 		// ON PARCOURT LA LISTE DES PAYS VOISINS
 		for ( Pays paysVoisin : paysVoisins )
