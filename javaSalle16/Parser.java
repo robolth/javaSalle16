@@ -80,7 +80,7 @@ public class Parser
 
 
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
-	public boolean Ecriture(String CartePeinte)
+	public boolean Ecriture(String CartePeinte) throws IOException
 	{
 
 
@@ -91,7 +91,7 @@ public class Parser
 						
 		for (Pays p : this.pays)
 		{
-			tamponEcriture.write(p.getNom + " " + p.getXmin + " " + p.getYmin + " " + p.getXmax + " " + p.getYmax + " " + p.getCouleur + '\n') ;
+			tamponEcriture.write(p.getNom() + " " + p.getXmin() + " " + p.getYmin() + " " + p.getXmax() + " " + p.getYmax() + " " + p.getCouleur() + '\n') ;
 	
 		}
 						

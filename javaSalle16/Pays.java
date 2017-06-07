@@ -12,6 +12,9 @@ public class Pays
 	private boolean dejaColorie ; /*getter */
 	public Palette paletteDisponible;
 
+	
+
+
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{
 		boolean result = false; 
@@ -77,10 +80,39 @@ public class Pays
 	}	
 	
 	
-	public static void main(String[] args) 
+
+
+
+	public String getNom()
 	{
-		// � compléter
-
+		return nom ;
 	}
+	
+	public int getXmin()
+	{
+		return xmin ;
+	}
+	
+	public int getYmin()
+	{
+		return ymin ;
+	}
+	
+	public int getXmax()
+	{
+		return xmax ;
+	}
+	
+	public int getYmax()
+	{
+		return ymax ;
+	}
+	
+	
+	/* public static void main(String[] args) 
+	{
+		// � compl�ter si n�cessaire
 
+	} */
+	
 }
