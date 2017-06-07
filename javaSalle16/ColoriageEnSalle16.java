@@ -34,7 +34,7 @@ public class ColoriageEnSalle16 {
 	
 	public static void main(String[] args) throws IOException {
 
-		new ColoriageEnSalle16("/Users/mathieujuttet/Desktop/Cartes/Carte_0.txt");
+		new ColoriageEnSalle16("/Users/mathieujuttet/Desktop/Cartes/Carte_11.txt");
 	
 		
 //		new ColoriageEnSalle16(args[0]);

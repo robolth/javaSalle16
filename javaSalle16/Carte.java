@@ -58,7 +58,7 @@ public class Carte
 			// SI LE PAYS VOISIN EST DEJA COLORIE ON ENLEVE SA COULEUR DE LA PALETTE DES COULEURS DISPOS
 			if ( paysVoisin.getDejaColorie() == true ) 
 			{
-				System.out.println("	" + paysVoisin.getCouleur() + " n'est plus dispobible");
+//				System.out.println("	" + paysVoisin.getCouleur() + " n'est plus dispobible");
 				pays.paletteDisponible.remove(paysVoisin.getCouleur());
 				
 			}
@@ -66,13 +66,13 @@ public class Carte
 
 		// S'IL Y A DES COULEURS POSSIBLES DANS LA PALETTE, ON COLORIE LE 
 		// PAYS AVEC LA PREMIERE COULEUR DISPONIBLE ET ON RENVOIE TRUE
-		if (pays.paletteDisponible.couleurs.length != 0)
+		if (!pays.paletteDisponible.estVide())
 		{	
-			pays.setCouleur(pays.paletteDisponible.couleurs[0]);
+			pays.setCouleur(pays.paletteDisponible.premiereCouleurDisponible());
 			pays.setDejaColorie(true) ;
 			
-			System.out.println("	pays colorié en " + pays.paletteDisponible.couleurs[0]);			
-			System.out.println("Carte.colorier() -> true");			
+			System.out.println("	pays colorié en " + pays.getCouleur());			
+//			System.out.println("Carte.colorier() -> true");			
 			return true ;
 		}
 		
@@ -80,7 +80,7 @@ public class Carte
 		else
 		{
 			System.out.println("	Aucune couleur restant disponible");			
-			System.out.println("Carte.colorier() -> false");		
+//			System.out.println("Carte.colorier() -> false");		
 			return false;
 		}
 		

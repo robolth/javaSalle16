@@ -12,12 +12,43 @@ public class Palette {
 		
 	}
 	
-	
-	public void remove(Color couleur){
-			
-		Color[] tempCouleurs = new Color[this.couleurs.length - 1];
+	public Color premiereCouleurDisponible(){
 		
-		for(int i=0; i < couleurs.length; i++) {
+		for(Color c : this.couleurs) {
+			if(c == Color.red || c == Color.blue || c == Color.green || c == Color.yellow){				
+				return c;							
+			}
+		}		
+		System.out.println("Palette.premiereCouleurDisponible() : ERREUR");
+		return Color.BLACK;
+	}
+	
+	
+	public void printCouleurs(){
+		for(Color c : this.couleurs) {
+			System.out.println("Palette.printCouleurs : " + c);
+		}	
+		
+	}
+	
+	
+	public void remove(Color couleurARetirer){
+
+//		System.out.println("Palette.remove(" + couleurARetirer + ")");		
+//		this.printCouleurs();		
+		for(int index = 0 ; index < this.couleurs.length; index++) {
+			if(this.couleurs[index] == couleurARetirer){				
+				this.couleurs[index] = Color.BLACK;							
+			}			
+		}
+	
+//		System.out.println("\nAprès remove");		
+//		this.printCouleurs();		
+		
+		//Color[] tempCouleurs = new Color[this.couleurs.length - 1];
+
+// DEPRECATED
+/*		for(int i=0; i < couleurs.length; i++) {
 			if(couleurs[i]==couleur){				
 				for(int j = i; j < couleurs.length -1; j++){
 					
@@ -30,7 +61,7 @@ public class Palette {
 								
 			}			
 		}		
-
+*/
 	}
 	
 	public void reset(){
@@ -44,6 +75,19 @@ public class Palette {
 			}			
 		}		
 		return false;
+	}
+	
+	public boolean estVide()
+	{
+		for (Color c : this.couleurs)
+		{
+			if (c == Color.red || c == Color.blue || c == Color.green || c == Color.yellow)
+			{
+				return false;
+			}
+				
+		}
+		return true;
 	}
 	
 	

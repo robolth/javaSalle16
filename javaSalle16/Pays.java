@@ -59,7 +59,7 @@ public class Pays
 		}
 	
 		
-			System.out.println(this.nom + ".estVoisin(" + paysATester.getNom() +") -> " + result);
+//			System.out.println(this.nom + ".estVoisin(" + paysATester.getNom() +") -> " + result);
 		
 			return result ;
 		}
