@@ -14,7 +14,17 @@ public class Carte
 	public Pays[] listerVoisins(Pays p)
 	{
 		int index = 0;
-		Pays[] result = new Pays[0];
+		int nombreDePaysVoisins = 0;
+		
+		for(Pays q:pays)
+		{
+			if(p.estVoisin(q))
+			{
+				nombreDePaysVoisins++;
+			}
+		}
+		
+		Pays[] result = new Pays[nombreDePaysVoisins];
 		
 		for(Pays q:pays)
 		{
@@ -23,6 +33,7 @@ public class Carte
 				result[index] = q;
 				index++;
 			}
+			
 		}
 		return result;
 	}
@@ -35,32 +46,44 @@ public class Carte
 	
 	public boolean colorier (Pays pays)
 	{
+		System.out.println("Carte.colorier()");
 		Pays[] paysVoisins = listerVoisins(pays) ;
+		
+		
+		System.out.println( paysVoisins.length + " pays voisins");
 		
 		// ON PARCOURT LA LISTE DES PAYS VOISINS
 		for ( Pays paysVoisin : paysVoisins )
-		{
+		{			
 			// SI LE PAYS VOISIN EST DEJA COLORIE ON ENLEVE SA COULEUR DE LA PALETTE DES COULEURS DISPOS
 			if ( paysVoisin.getDejaColorie() == true ) 
 			{
-				pays.paletteDisponible.remove(paysVoisin.getCouleur()); 
+				System.out.println("	" + paysVoisin.getCouleur() + " n'est plus dispobible");
+				pays.paletteDisponible.remove(paysVoisin.getCouleur());
+				
 			}
 		}
-		
+
 		// S'IL Y A DES COULEURS POSSIBLES DANS LA PALETTE, ON COLORIE LE 
 		// PAYS AVEC LA PREMIERE COULEUR DISPONIBLE ET ON RENVOIE TRUE
 		if (pays.paletteDisponible.couleurs.length != 0)
-		{
+		{	
 			pays.setCouleur(pays.paletteDisponible.couleurs[0]);
 			pays.setDejaColorie(true) ;
+			
+			System.out.println("	pays colorié en " + pays.paletteDisponible.couleurs[0]);			
+			System.out.println("Carte.colorier() -> true");			
 			return true ;
 		}
 		
 		// S'IL N'Y A PAS DE COULEUR DISPONIBLE, ON RENVOIE FALSE
 		else
 		{
+			System.out.println("	Aucune couleur restant disponible");			
+			System.out.println("Carte.colorier() -> false");		
 			return false;
 		}
+		
 	}
 	
 
@@ -74,6 +97,7 @@ public class Carte
 		{
 			if (colorier(pays[index]) )
 			{
+
 				result = true ;
 			}
 			else
@@ -85,6 +109,8 @@ public class Carte
 				index -= 2;
 			}
 		}
+		
+		System.out.println("Carte.peindre() -> " + result);
 		return result ;
 	}
 	

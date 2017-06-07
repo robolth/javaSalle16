@@ -14,17 +14,23 @@ public class Palette {
 	
 	
 	public void remove(Color couleur){
+			
+		Color[] tempCouleurs = new Color[this.couleurs.length - 1];
 		
 		for(int i=0; i < couleurs.length; i++) {
-			if(couleurs[i]==couleur){
-				
+			if(couleurs[i]==couleur){				
 				for(int j = i; j < couleurs.length -1; j++){
+					
+					
 					couleurs[j] = couleurs[j+1];
+					
+					
+					
 				}
 								
 			}			
 		}		
-		
+
 	}
 	
 	public void reset(){
