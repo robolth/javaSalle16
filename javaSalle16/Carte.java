@@ -1,20 +1,12 @@
 package javaSalle16;
 
-// IMPORT DES BIBLIOTHEQUES NECESSAIRES
-import java.awt.Color;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 public class Carte 
 {
 	private Pays[] pays;
 	
-	public Carte(String adresse)
+	public Carte(String adresse) throws IOException
 	{
 	
 		Parser parser = new Parser();
