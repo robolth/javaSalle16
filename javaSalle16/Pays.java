@@ -24,23 +24,37 @@ public class Pays
 		ymaxv = paysATester.ymax;
 		
 		/*comparaison de toutes les coordonnées entre elles, pour les x puis les y */
+		if ( yminv==ymax || ymaxv == ymin)
+		{
 		if (	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax) 
 				||	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax)
-				|| 	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax) )
+				|| 	(xminv < xmin && xminv < xmax && xmaxv > xmin && xmaxv > xmax) 
+				|| 	(xminv == xmin && xminv == xmax && xmaxv == xmin && xmaxv == xmax)
+				|| 	(xminv == xmin && xminv < xmax && xmaxv > xmin && xmaxv < xmax)
+				|| 	(xminv > xmin && xminv < xmax && xmaxv > xmin && xmaxv == xmax)
+				)
 				{
 				result = true ;
 				}
+		}
 		else 
 		{
+			if ( xminv==xmax || xmaxv == xmin)
+			{
 			if(	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 		
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
 				||	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax)
-				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) )
+				|| 	(yminv < ymin && yminv < ymax && ymaxv > ymin && ymaxv > ymax) 
+				|| 	(yminv == ymin && yminv == ymax && ymaxv == ymin && ymaxv == ymax)
+				|| 	(yminv == ymin && yminv < ymax && ymaxv > ymin && ymaxv < ymax)
+				|| 	(yminv > ymin && yminv < ymax && ymaxv > ymin && ymaxv == ymax)
+					)
 				{
 				result = true ;
 				}
+			}
 		}
 			return result ;
 		}
