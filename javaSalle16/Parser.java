@@ -102,7 +102,7 @@ public class Parser
 			
 			System.out.print("code couleur pays " + p.getNom() + ": " + codeCouleur + '\n');
 			
-			// ON DIVISE LES VALEURS PAR 10 AFIN DE RESPECTER LE FORMAT DE LA MACRO EXCEL ET ON AJOUTE UN INDEX D'ORDRE DE COLORIAGE NECESSAIRE A LA MACRO			
+			// ON DIVISE LES VALEURS PAR 10 AFIN DE RESPECTER LE FORMAT DE LA MACRO EXCEL ET ON AJOUTE UN INDEX D'ORDRE DE COLORIAGE NECESSAIRE A LA MACRO EXCEL	
 			tamponEcriture.write(p.getNom() + "	" + p.getXmin()/10 + " 	" + p.getYmin()/10 + " 	" + p.getXmax()/10 + " 	" + p.getYmax()/10 + " 	" + codeCouleur + " 	" + indexColoriage + '\n') ;
 			indexColoriage ++ ;
 		}
