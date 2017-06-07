@@ -51,12 +51,36 @@ public class Pays
 		return dejaColorie ;
 	}
 
+	public String getNom()
+	{
+		return nom ;
+	}
+	
+	public int getXmin()
+	{
+		return xmin ;
+	}
+	
+	public int getYmin()
+	{
+		return ymin ;
+	}
+	
+	public int getXmax()
+	{
+		return xmax ;
+	}
+	
+	public int getYmax()
+	{
+		return ymax ;
+	}
+	
 	
 	/* public static void main(String[] args) 
 	{
 		// à compléter si nécessaire
 
-	}
-*/
+	} */
 	
 }
