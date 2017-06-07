@@ -12,15 +12,18 @@ public class Parser
 {
 	private Pays[] pays ;
 
-		public Parser ()
+	public Parser () throws IOException
 	{
+	//	lecture("/src/Carte_18.txt") ;
+	//	ecriture("/src/CartePeinte_18.txt") ;
 		
+		Pays[] pays = new Pays[0];
 	}
 	
 	// ********** DEBUT METHODE LECTURE ***********
 
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
-	public boolean Lecture(String Carte) throws IOException
+	public boolean lecture(String Carte) throws IOException
 	{
 		
 		// VERIFICATION QUE LE FICHIER SOURCE EXISTE (TRY + CATCH)
@@ -41,22 +44,22 @@ public class Parser
 				// UTILISATION DU SEPARATEUR " " POUR RECUPERER LES DIFFERENTS ELEMENTS
 				StringTokenizer donnee = new StringTokenizer(ligne," ") ;
 					
-				// RECUPERATION DU NOM ET DES COORDONNEES
+				// RECUPERATION DU NOM ET DES COORDONNEES SE TROUVANT DANS LE FICHIER SOURCE
 				String nom = donnee.nextToken() ;
 				String xmin = donnee.nextToken() ;
 				String ymin = donnee.nextToken() ;
 				String xmax = donnee.nextToken() ;
 				String ymax = donnee.nextToken() ;
 				
+				// TRANSFORMATION DES COORDONNEES DE STRING A INT POUR ETRE COMPREHENSIBLE PAR LA CLASSE "PAYS"
 				int xm = Integer.parseInt(xmin) ;
 				int ym = Integer.parseInt(ymin) ;
 				int xM = Integer.parseInt(xmax) ;
 				int yM = Integer.parseInt(ymax) ;
-				
-				
-				//System.out.println("nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
+								
+				System.out.println("[PARSER] nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
 					
-				// CREATION D'UNE INSTANCE PAYS DANS LA CASE Nï¿½ "INDEX" DU TABLEAU "PAYS"
+				// CREATION D'UNE INSTANCE PAYS DANS LA CASE N° "INDEX" DU TABLEAU "PAYS"
 				this.pays[index] = new Pays(nom, xm, ym, xM, yM) ;
 				index ++ ;
 			}
@@ -73,26 +76,22 @@ public class Parser
 		}
 	}
 
-	// ********** FIN METHODE LECTURE ***********
+// ********** FIN METHODE LECTURE ***********
 		
 		
-	// ********** DEBUT METHODE ECRITURE ***********
-
+// ********** DEBUT METHODE ECRITURE ***********
 
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
-	public boolean Ecriture(String CartePeinte) throws IOException
+	public boolean ecriture(String CartePeinte) throws IOException
 	{
-
-
 		// PREPARATION DE L'ECRITURE DANS UN FICHIER CIBLE ENTRE EN ARGUMENT
 		FileWriter resultat = new FileWriter(CartePeinte) ;
 		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
 						
-						
+		// ECRITURE DANS LE FICHIER CIBLE POUR TOUS LES PAYS P SE TROUVANT DANS L'INSTANCE "PAYS"				
 		for (Pays p : this.pays)
 		{
 			tamponEcriture.write(p.getNom() + " " + p.getXmin() + " " + p.getYmin() + " " + p.getXmax() + " " + p.getYmax() + " " + p.getCouleur() + '\n') ;
-	
 		}
 						
 		tamponEcriture.flush() ;
@@ -100,8 +99,12 @@ public class Parser
 			
 		return true ;
 	}
-		
-	// ********** FIN METHODE ECRITURE ***********
 
+	public Pays[] getPays()
+	{
+		return pays ;
+	}
+	
+// ********** FIN METHODE ECRITURE ***********
 	
 }
