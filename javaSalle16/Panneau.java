@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import javax.swing.JPanel;
 
 public class Panneau extends JPanel{
-
+/*
 	public Carte carte;
 
 	public Panneau(){
@@ -16,4 +16,5 @@ public class Panneau extends JPanel{
 		super.paintComponent(g);
 		g.drawPolygon(triangle);
 	}
+	*/
 }

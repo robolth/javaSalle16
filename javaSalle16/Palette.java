@@ -9,6 +9,7 @@ public class Palette {
 	public Palette(){
 		
 		couleurs = new Color[] {Color.blue, Color.green, Color.yellow, Color.red};
+		
 	}
 	
 	

@@ -10,14 +10,14 @@ import java.util.StringTokenizer;
 
 public class Parser
 {
-	private Pays[] pays ;
+	private Carte carte ;
 
 	public Parser () throws IOException
 	{
 	//	lecture("/src/Carte_18.txt") ;
 	//	ecriture("/src/CartePeinte_18.txt") ;
 		
-		Pays[] pays = new Pays[0];
+		carte = new Carte();
 	}
 	
 	// ********** DEBUT METHODE LECTURE ***********
@@ -35,33 +35,35 @@ public class Parser
 			// UTILISATION D'UNE VARIABLE POUR LES LIGNES DU FICHIER SOURCE
 			String ligne = "erreur" ;
 				
-			// INITIALISATION DE L'INDEX DU TABLEAU "PAYS"
-			int index = 0 ;
+
 				
 			// LECTURE DU FICHIER SOURCE
 			while ((ligne = tamponLecture.readLine()) != null)
 			{
+				
+
 				// UTILISATION DU SEPARATEUR " " POUR RECUPERER LES DIFFERENTS ELEMENTS
 				StringTokenizer donnee = new StringTokenizer(ligne," ") ;
-					
+
 				// RECUPERATION DU NOM ET DES COORDONNEES SE TROUVANT DANS LE FICHIER SOURCE
 				String nom = donnee.nextToken() ;
 				String xmin = donnee.nextToken() ;
 				String ymin = donnee.nextToken() ;
 				String xmax = donnee.nextToken() ;
 				String ymax = donnee.nextToken() ;
-				
 				// TRANSFORMATION DES COORDONNEES DE STRING A INT POUR ETRE COMPREHENSIBLE PAR LA CLASSE "PAYS"
 				int xm = Integer.parseInt(xmin) ;
 				int ym = Integer.parseInt(ymin) ;
 				int xM = Integer.parseInt(xmax) ;
 				int yM = Integer.parseInt(ymax) ;
-								
-				System.out.println("[PARSER] nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax + '\n') ;
 					
-				// CREATION D'UNE INSTANCE PAYS DANS LA CASE N° "INDEX" DU TABLEAU "PAYS"
-				this.pays[index] = new Pays(nom, xm, ym, xM, yM) ;
-				index ++ ;
+				System.out.println("[PARSER] nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax) ;
+					
+				// CREATION D'UNE INSTANCE PAYS DANS LA CASE Nï¿½ "INDEX" DU TABLEAU "PAYS"
+				
+				Pays tempPays = new Pays(nom, xm, ym, xM, yM);
+				this.carte.ajouterPays(tempPays) ;
+
 			}
 				
 			tamponLecture.close() ;
@@ -89,7 +91,7 @@ public class Parser
 		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
 						
 		// ECRITURE DANS LE FICHIER CIBLE POUR TOUS LES PAYS P SE TROUVANT DANS L'INSTANCE "PAYS"				
-		for (Pays p : this.pays)
+		for (Pays p : this.carte.getPays())
 		{
 			tamponEcriture.write(p.getNom() + " " + p.getXmin() + " " + p.getYmin() + " " + p.getXmax() + " " + p.getYmax() + " " + p.getCouleur() + '\n') ;
 		}
@@ -100,9 +102,9 @@ public class Parser
 		return true ;
 	}
 
-	public Pays[] getPays()
+	public Carte getCarte()
 	{
-		return pays ;
+		return carte ;
 	}
 	
 // ********** FIN METHODE ECRITURE ***********

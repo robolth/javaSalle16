@@ -6,22 +6,10 @@ public class Carte
 {
 	private Pays[] pays;
 	
-	public Carte(String adresse) throws IOException
+	public Carte()
 	{
-	
-		Parser parser = new Parser();
-		if (parser.lecture(adresse))
-		{
-			this.pays = parser.getPays();
-			System.out.println("Carte : génération de la carte terminée");
-		}
-		else 
-		{
-		System.out.println("Carte : la carte n'a pas pu être générée");	
-		}
+		pays = new Pays[0];
 	}
-
-
 	
 	public Pays[] listerVoisins(Pays p)
 	{
@@ -100,6 +88,24 @@ public class Carte
 		return result ;
 	}
 	
+	void ajouterPays(Pays newPays)
+	{
+		Pays[] tempPays = new Pays[this.pays.length+1];
+		for (int index = 0 ; index < this.pays.length ; index++)
+		{
+			tempPays[index] = this.pays[index];
+			
+		}
+		tempPays[this.pays.length] = newPays;
+		this.pays = tempPays;
+		
+		
+	}
+
+	public Pays[] getPays()
+	{
+		return this.pays;
+	}
 	
 	
 }

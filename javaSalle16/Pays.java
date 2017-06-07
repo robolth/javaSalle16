@@ -46,15 +46,17 @@ public class Pays
 		}
 		
 	public Pays(String nom, int xmin, int ymin, int xmax, int ymax)
-		{
-			 Palette paletteDisponible=new Palette();
-			 Color couleur = this.paletteDisponible.couleurs[0];
-			 boolean dejaColorie = false ;
+		{		
+			Palette paletteDisponible=new Palette();
+			couleur = Color.BLACK;
+
+			boolean dejaColorie = false ;
 			 this.nom=nom;
 			 this.xmin = xmin;
 			 this.ymin = ymin;
 			 this.xmax = xmax;
 			 this.ymax = ymax;
+			 
 		}
 
 	public boolean getDejaColorie()
