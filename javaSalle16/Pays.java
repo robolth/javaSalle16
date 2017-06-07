@@ -7,8 +7,8 @@ public class Pays
 	public String nom;
 	public int xmin, ymin, xmax, ymax;
 	public int xminv, yminv, xmaxv, ymaxv;
-	private Color couleur; /*getter */
-	private boolean dejaColorie ; /*getter */
+	private Color couleur;
+	private boolean dejaColorie ;
 	private Palette paletteDisponible;
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
@@ -52,10 +52,11 @@ public class Pays
 	}
 
 	
-	public static void main(String[] args) 
+	/* public static void main(String[] args) 
 	{
-		// à compléter
+		// à compléter si nécessaire
 
 	}
-
+*/
+	
 }
