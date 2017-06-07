@@ -27,7 +27,7 @@ public class ColoriageEnSalle16 {
 		}
 		
 	
-//		vue = new Vue(carte);
+		vue = new Vue(carte);
 //		new Controleur(vue);
 	}
 	

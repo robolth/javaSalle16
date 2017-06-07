@@ -2,9 +2,13 @@ package javaSalle16;
 
 import java.io.IOException;
 
+import selection.Panneau;
+
 public class Carte 
 {
 	private Pays[] pays;
+	
+	private Panneau panneau;
 	
 	public Carte()
 	{
@@ -37,6 +41,11 @@ public class Carte
 		}
 		return result;
 	}
+	
+	void setPanneau(Panneau p){
+		panneau = p;
+	}
+	
 
 // FONCTION QUI CHERCHE UNE COULEUR POUR COLORIER UN PAYS
 // SI ELLE TROUVE UNE COULEUR QUI N'EST PAS EN CONFLIT AVEC CELLES DES PAYS

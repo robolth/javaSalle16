@@ -1,8 +1,10 @@
 package javaSalle16;
 
 import java.awt.Color;
+import java.awt.Polygon;
+import java.awt.geom.Rectangle2D;
 
-public class Pays 
+public class Pays extends Rectangle2D
 {
 
 	private String nom;
@@ -13,7 +15,24 @@ public class Pays
 	public Palette paletteDisponible;
 
 	
+	public Pays(String nom, int xmin, int ymin, int xmax, int ymax)
+	{		
+		super();
+		paletteDisponible=new Palette();
+		couleur = Color.BLACK;
 
+		dejaColorie = false ;
+		
+		 this.nom=nom;
+		 this.xmin = xmin;
+		 this.ymin = ymin;
+		 this.xmax = xmax;
+		 this.ymax = ymax;
+		 
+		 
+		this.setRect(xmin,ymin,(xmax-xmin),(ymax-ymin));
+		 
+	}
 
 	boolean estVoisin (Pays paysATester) /* prevoir le cas : le pays n'est pas voisin de lui-même */
 		{		
@@ -62,21 +81,6 @@ public class Pays
 //			System.out.println(this.nom + ".estVoisin(" + paysATester.getNom() +") -> " + result);
 		
 			return result ;
-		}
-		
-	public Pays(String nom, int xmin, int ymin, int xmax, int ymax)
-		{		
-			paletteDisponible=new Palette();
-			couleur = Color.BLACK;
-
-			dejaColorie = false ;
-			
-			 this.nom=nom;
-			 this.xmin = xmin;
-			 this.ymin = ymin;
-			 this.xmax = xmax;
-			 this.ymax = ymax;
-			 
 		}
 
 	public boolean getDejaColorie()
@@ -128,6 +132,60 @@ public class Pays
 	public int getYmax()
 	{
 		return ymax ;
+	}
+
+	@Override
+	public void setRect(double x, double y, double w, double h) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int outcode(double x, double y) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Rectangle2D createIntersection(Rectangle2D r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Rectangle2D createUnion(Rectangle2D r) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
