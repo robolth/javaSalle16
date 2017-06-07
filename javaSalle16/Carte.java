@@ -1,8 +1,8 @@
 package javaSalle16;
 
 import java.io.IOException;
+import java.util.Scanner;
 
-import selection.Panneau;
 
 public class Carte 
 {
@@ -82,6 +82,9 @@ public class Carte
 			
 			System.out.println("	pays colorié en " + pays.getCouleur());			
 //			System.out.println("Carte.colorier() -> true");			
+			
+			this.panneau.repaint();
+			
 			return true ;
 		}
 		
@@ -90,6 +93,10 @@ public class Carte
 		{
 			System.out.println("	Aucune couleur restant disponible");			
 //			System.out.println("Carte.colorier() -> false");		
+			
+//			this.panneau.repaint();
+			
+			
 			return false;
 		}
 		
@@ -140,6 +147,34 @@ public class Carte
 	public Pays[] getPays()
 	{
 		return this.pays;
+	}
+	
+	public int getWidth(){	
+		int maxResult = 0;
+		int minResult = 0;
+		for(Pays p:this.pays){
+			if(p.getXmax()>maxResult){
+				maxResult = p.getXmax();
+			}
+			if(p.getXmin()<minResult){
+				minResult = p.getXmin();
+			}			
+		}
+		return maxResult + minResult;
+	}
+	
+	public int getHeight(){	
+		int maxResult = 0;
+		int minResult = 0;
+		for(Pays p:this.pays){
+			if(p.getYmax()>maxResult){
+				maxResult = p.getYmax();
+			}
+			if(p.getYmin()<minResult){
+				minResult = p.getYmin();
+			}
+		}
+		return maxResult + minResult;
 	}
 	
 	

@@ -18,14 +18,14 @@ public class Vue extends JFrame {
 
 	private Panneau panneau;
 	
-	public Vue(){
+	public Vue(Carte carte){
 				
 		setTitle("Coloriage de carte");
-		setSize(500,500);
+		setSize((int)(1.2*carte.getWidth()),(int)(1.2*carte.getHeight()));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
-		panneau = new Panneau();
+		panneau = new Panneau(carte);
 		setContentPane(panneau);
 //		panneau.setBackground(Color.cyan);
 		
