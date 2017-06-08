@@ -3,6 +3,7 @@ package tracer_carte;
 public class TracageEnSalle16 
 {
 	private Vue vue ;
+	
 
 	public TracageEnSalle16()
 	{

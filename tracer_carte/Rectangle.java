@@ -1,49 +1,77 @@
 package tracer_carte;
 
 import java.awt.Graphics;
-import java.awt.geom.Rectangle2D;
 
-public class Rectangle extends Rectangle2D
+public class Rectangle
 {
-	private Panneau panneau;
-//	public boolean selection ;
+	public int x, y, w, h, xInit, yInit;
+	public boolean locked;
 	
-	public Rectangle(double x, double y, double cote)
-	{
-		super(x,y,cote,cote,cote,cote);
-		selection = false;
-		
-		this.x = x > 0 ? x : 0 ;
-		this.y = y > 0 ? y : 0 ;
-		this.width = cote > 0 ? cote : 0 ;
-		this.height = cote > 0 ? cote : 0 ;
-	}
+//	private Panneau panneau;
+
 	
-	void DrawCercle(Graphics g)
+	public Rectangle(int xd, int yd, int xf, int yf)
 	{
-		g.drawRoundRect((int) x, (int) y, (int) width, (int) height, (int) width, (int) height);
+		this.locked = false;
+		
+		this.x = xd ;
+		this.y = yd ;
+		this.w = xf - xd ;
+		this.h = yf - yd ;
+
+		xInit = xd ;
+		yInit = yd ;
+		
 	}
+
+	public Rectangle()
+	{
+		super();
+	}
+		
+	public boolean redimensionner(int xFinal, int yFinal, Graphics g)
+	{
 	
-	void DrawCarre(Graphics g)
-	{
-		g.drawRoundRect((int) x, (int) y, (int) width, (int) height, 0, 0);
+		if (locked) return false;
+		
+		
+		System.out.println("Rectangle.redimensionner() : " + xFinal + " " + yFinal);
+		System.out.println("Rectangle.redimensionner() : " + this.x + " " + this.y);
+
+		this.w = Math.abs(xFinal - xInit);
+		this.h = Math.abs(yFinal - yInit);
+		
+		if (xFinal < xInit)
+		{
+			this.x = xFinal;
+		}
+		else
+		{
+			this.x = xInit;
+		}
+		
+		
+		if (yFinal < yInit)
+		{
+			this.y = yFinal;
+		}
+		else
+		{
+			this.y = yInit;
+		}
+		
+		return true;
+		
 	}
-	
-	public void deplace(int x, int y, Graphics g)
+
+
+	public boolean isInside(int x, int y)
 	{
-		// centre de gravité
-		int xG = 0, yG = 0;
-		xG = (int) (this.x + this.width / 2.);
-		yG = (int) (this.y + this.height / 2.);
-		
-		int dX, dY ;
-		dX = x - xG;
-		dY = y - yG;
-		
-		this.x += dX;
-		this.y += dY;
-		
-		panneau.repaint();
+		if (x > this.x && x < (this.x + this.w) && y > this.y && y < (this.y + this.h))
+		{
+			return true;
+		}
+		return false;
 	}
-	void setPanneau(Panneau p) { panneau = p; }
+
 }
