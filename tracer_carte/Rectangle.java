@@ -3,6 +3,7 @@ package tracer_carte;
 import java.awt.Graphics;
 
 public class Rectangle
+
 {
 	public int x, y, w, h, xInit, yInit;
 	public boolean locked;
@@ -65,7 +66,7 @@ public class Rectangle
 	}
 
 
-	public boolean isInside(int x, int y)
+	public boolean contains(int x, int y)
 	{
 		if (x > this.x && x < (this.x + this.w) && y > this.y && y < (this.y + this.h))
 		{
@@ -74,4 +75,18 @@ public class Rectangle
 		return false;
 	}
 
+	public boolean doesNotIntersects(Rectangle r)
+	{
+		if ( 		(r.y <= this.y && r.y + r.h <= this.y)
+				||	(r.y >= this.y + this.h && r.y + r.h >= this.y + this.h)
+				|| 	(r.x <= this.x && r.x + r.w <= this.x)
+				||	(r.x >= this.x + this.w && r.x + r.w >= this.x + this.w)
+				)
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	
 }

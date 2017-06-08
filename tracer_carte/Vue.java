@@ -37,8 +37,9 @@ public class Vue extends JFrame
 		System.out.println("Vue.tracerRectangle()");
 		Graphics g = panneau.getGraphics();
 
-		if (true) { panneau.collection.redimensionner(panneau.collection.rectangles.length - 1,x,y,g); }
+		panneau.collection.redimensionner(panneau.collection.rectangles.length - 1,x,y,g);
 	}
+	
 }
 
 

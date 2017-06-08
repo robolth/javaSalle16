@@ -14,12 +14,12 @@ public class Collection {
 		
 	}
 	
-	public boolean isInside(int x, int y)
+	public boolean contains(int x, int y)
 	{
 		
 		for (Rectangle r : this.rectangles)
 		{
-			if (r.isInside(x, y))
+			if (r.locked && r.contains(x, y))
 			{
 				return true;
 			}
@@ -27,14 +27,32 @@ public class Collection {
 		return false;
 	}
 	
+	public boolean intersects(Rectangle r)
+	{
+		
+		for (Rectangle q : this.rectangles)
+		{
+			if (q.locked && !q.doesNotIntersects(r))
+			{
+				return true;
+			}
+		}
+		return false;
+	}	
 	
 	public boolean ajouter(Rectangle r)
 	{
-		if (	   this.isInside(r.x, r.y) 
-				|| this.isInside(r.x+r.w, r.y)
-				|| this.isInside(r.x, r.y+r.h)
-				|| this.isInside(r.x+r.w, r.y+r.h)				
-			) {
+		if (	this.intersects(r)
+				
+/*					this.contains(r.x, r.y) 
+				|| this.contains(r.x+r.w, r.y)
+				|| this.contains(r.x, r.y+r.h)
+				|| this.contains(r.x+r.w, r.y+r.h)				
+*/
+		
+	
+	
+		) {
 			return false;
 		}
 			

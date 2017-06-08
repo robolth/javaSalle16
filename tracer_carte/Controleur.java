@@ -31,8 +31,9 @@ public class Controleur implements MouseListener, MouseMotionListener
 	@Override
 	public void mouseReleased(MouseEvent e) 
 	{
+		vue.panneau.collection.rectangles[vue.panneau.collection.rectangles.length - 1].locked = true;
 		
-		vue.panneau.collection.getLatestRectangle().locked = true;
+//		getLatestRectangle().locked = true;
 		
 //		if(vue.panneau.collection.isInside())
 //		vue.tracerRectangle(e.getX(), e.getY()); 
@@ -45,27 +46,39 @@ public class Controleur implements MouseListener, MouseMotionListener
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		
-		// On est en train de tracer un nouveau rectangle
-		if(vue.panneau.collection.getLatestRectangle().locked){
+		if	(			!vue.panneau.collection.contains(e.getX(), e.getY()) 
+				&& 	!vue.panneau.collection.intersects(this.vue.panneau.collection.getLatestRectangle())
+			) {
+				vue.tracerRectangle(e.getX(), e.getY());	
+		}
+
+		
+/*		
+		else {
 			
+			System.out.println("\n\n				ELSE");
+			System.out.println("\n\n	locked ?" + vue.panneau.collection.getLatestRectangle().locked);			
 			
-			
-			
+			vue.panneau.repaint();
 			
 		}
+*/		
 		
 		
 		
+/*		
 		
-		
-		
-		// On est en train de tracer un nouveau rectangle
-		if(!vue.panneau.collection.isInside(e.getX(), e.getY()) || !vue.panneau.collection.getLatestRectangle().locked)
+		if(		!vue.panneau.collection.contains(e.getX(), e.getY()) )
 		{
-			vue.tracerRectangle(e.getX(), e.getY());
+			
+			if(!vue.panneau.collection.intersects(this.vue.panneau.collection.getLatestRectangle()))
+			{
+				vue.tracerRectangle(e.getX(), e.getY());
+			}
+			
 	
 		}
-		
+*/	
 		
 		
 	
