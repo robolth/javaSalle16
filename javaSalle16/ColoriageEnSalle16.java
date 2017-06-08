@@ -11,36 +11,6 @@ public class ColoriageEnSalle16 {
 	private Carte carte;
 	private Vue vue;
 	
-
-	// Choix du fichier dans une fenêtre
-	 
-			public class SelectionFichier {
-			    
-			        // Exemple numéro 1
-			        // Boîte de sélection de fichier à partir du répertoire
-			        // "home" de l'utilisateur
-			        {
-			            // création de la boîte de dialogue
-			            JFileChooser dialogue = new JFileChooser();
-			             
-			            // affichage
-			            dialogue.showOpenDialog(null);
-			             
-			            // récupération du fichier sélectionné
-			            System.out.println("Fichier choisi : " + dialogue.getSelectedFile());
-			        }
-			         
-			         
-
-			 
-			    }
-				
-	
-	
-	
-	
-	
-	
 	// Le constructeur prendra en argument l'adresse du fichier à colorer
 	public ColoriageEnSalle16() throws IOException, InterruptedException{
 
@@ -58,7 +28,7 @@ public class ColoriageEnSalle16 {
 		if (parser.lecture(adresse))
 		{
 			this.carte = parser.getCarte();
-			System.out.println("ColoriageEnSalle16 : génération de la carte terminée");
+			System.out.println("ColoriageEnSalle16.ColoriageEnSalle16() : instance de Carte créée");
 
 //			parser.ecriture(adresse + "_colorie.txt");
 		

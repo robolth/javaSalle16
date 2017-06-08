@@ -11,6 +11,8 @@ public class Carte
 	
 	private Panneau panneau;
 	
+	private int sleepTime = 200;
+	
 	public Carte()
 	{
 		pays = new Pays[0];
@@ -53,14 +55,22 @@ public class Carte
 // VOISINS, LA FONCTION RENVOIE TRUE. SI AUCUNE COULEUR NE PEUT ETRE UTILISEE
 // ELLE RENVOIE FALSE.
 
+	public String getColorName(Color c) {
+
+		if (c == Color.blue) {return "bleu";}
+		if (c == Color.red) {return "rouge";}
+		if (c == Color.yellow) {return "jaune";}
+		if (c == Color.green) {return "vert";}
+		return "erreur";
+	}
 	
 	public boolean colorier (Pays pays) throws InterruptedException
 	{
-		System.out.println("Carte.colorier()");
+//		System.out.println("Carte.colorier()");
 		Pays[] paysVoisins = listerVoisins(pays) ;
 		
 		
-		System.out.println( pays.getNom() + " a " + paysVoisins.length + " pays voisins");
+//		System.out.println("Carte.colorier() :" + pays.getNom() + " a " + paysVoisins.length + " pays voisins");
 		
 		// ON PARCOURT LA LISTE DES PAYS VOISINS
 		for ( Pays paysVoisin : paysVoisins )
@@ -81,10 +91,10 @@ public class Carte
 			pays.setCouleur(pays.paletteDisponible.premiereCouleurDisponible());
 			pays.setDejaColorie(true) ;
 			
-			System.out.println("	pays colorié en " + pays.getCouleur());			
+			System.out.println("Carte.colorier(" + pays.getNom()+ ") : " + getColorName(pays.getCouleur()));			
 //			System.out.println("Carte.colorier() -> true");			
 			
-			Thread.sleep(300);
+			Thread.sleep(sleepTime);
 			this.panneau.repaint();
 			
 			return true ;
@@ -93,12 +103,12 @@ public class Carte
 		// S'IL N'Y A PAS DE COULEUR DISPONIBLE, ON RENVOIE FALSE
 		else
 		{
-			System.out.println("	Aucune couleur restant disponible");			
+			System.out.println("Carte.colorier(" + pays.getNom()+ ") : aucune couleur disponible");			
 //			System.out.println("Carte.colorier() -> false");		
 			
 			pays.setCouleur(Color.black);
 			
-			Thread.sleep(300);
+			Thread.sleep(sleepTime);
 			this.panneau.repaint();
 			
 			

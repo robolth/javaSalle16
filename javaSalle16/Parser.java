@@ -52,7 +52,7 @@ public class Parser
 				int xM = Integer.parseInt(xmax) ;
 				int yM = Integer.parseInt(ymax) ;
 					
-				System.out.println("[PARSER] nom pays: " + nom + ", coordonnees : " + xmin + ", " + ymin + ", " + xmax + ", " + ymax) ;
+				System.out.println("Parser.lecture() : " + nom + " " + xmin + " " + ymin + " " + xmax + " " + ymax) ;
 					
 				// CREATION D'UNE INSTANCE PAYS
 				Pays tempPays = new Pays(nom, xm, ym, xM, yM);
