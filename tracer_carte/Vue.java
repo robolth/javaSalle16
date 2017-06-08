@@ -26,7 +26,7 @@ public class Vue extends JFrame
 		panneau.addMouseMotionListener(controleur);	
 	}
 	
-	public void selectionner(int x, int y, boolean clic)
+/*	public void selectionner(int x, int y, boolean clic)
 	{
 		if(clic) 
 		{
@@ -51,7 +51,13 @@ public class Vue extends JFrame
 			}
 	
 	}
-
+*/
+	
+	public void tracer()
+	{
+		
+	}
+	
 	public void mouvement(int x, int y) 
 	{
 		Graphics g = panneau.getGraphics();

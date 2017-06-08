@@ -1,12 +1,12 @@
 package tracer_carte;
 
 import java.awt.Graphics;
-import java.awt.geom.RoundRectangle2D;
+import java.awt.geom.Rectangle2D;
 
-public class Rectangle extends RoundRectangle2D.Double
+public class Rectangle extends Rectangle2D
 {
 	private Panneau panneau;
-	public boolean selection ;
+//	public boolean selection ;
 	
 	public Rectangle(double x, double y, double cote)
 	{

@@ -6,9 +6,9 @@ import javax.swing.JPanel;
 
 public	class Panneau extends JPanel
 	{
-		public Triangle triangle ;
-		public Rectangle carre;
-		public Rectangle cercle;
+		
+		public Rectangle[] rectangles;
+
 		public Panneau()
 		{
 			triangle = new Triangle();
