@@ -1,4 +1,4 @@
-package javaSalle16;
+package colorier_carte;
 
 import java.awt.Color;
 import java.awt.Polygon;

@@ -1,4 +1,4 @@
-package javaSalle16;
+package colorier_carte;
 
 import java.io.IOException;
 import java.util.Scanner;
