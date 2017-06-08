@@ -1,5 +1,6 @@
 package javaSalle16;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -53,7 +54,7 @@ public class Carte
 // ELLE RENVOIE FALSE.
 
 	
-	public boolean colorier (Pays pays)
+	public boolean colorier (Pays pays) throws InterruptedException
 	{
 		System.out.println("Carte.colorier()");
 		Pays[] paysVoisins = listerVoisins(pays) ;
@@ -83,6 +84,7 @@ public class Carte
 			System.out.println("	pays colorié en " + pays.getCouleur());			
 //			System.out.println("Carte.colorier() -> true");			
 			
+			Thread.sleep(300);
 			this.panneau.repaint();
 			
 			return true ;
@@ -94,7 +96,10 @@ public class Carte
 			System.out.println("	Aucune couleur restant disponible");			
 //			System.out.println("Carte.colorier() -> false");		
 			
-//			this.panneau.repaint();
+			pays.setCouleur(Color.black);
+			
+			Thread.sleep(300);
+			this.panneau.repaint();
 			
 			
 			return false;
@@ -106,7 +111,7 @@ public class Carte
 	
 	
 	// colorie l'ensemble des pays de la carte
-	boolean peindre()
+	boolean peindre() throws InterruptedException
 	{
 		boolean result = false ;
 		for (int index = 0 ; index < pays.length ; index++)

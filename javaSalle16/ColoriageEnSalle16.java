@@ -42,7 +42,7 @@ public class ColoriageEnSalle16 {
 	
 	
 	// Le constructeur prendra en argument l'adresse du fichier à colorer
-	public ColoriageEnSalle16() throws IOException{
+	public ColoriageEnSalle16() throws IOException, InterruptedException{
 
 		Parser parser = new Parser();
 		
@@ -80,7 +80,7 @@ public class ColoriageEnSalle16 {
 	}
 	
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, InterruptedException {
 
 		new ColoriageEnSalle16();
 	
