@@ -70,7 +70,7 @@ public class Controleur implements MouseListener, MouseMotionListener
 		}	
 		else {
 			vue.panneau.collection.getLatestRectangle().resetLastCoordinates();			
-
+			
 			vue.panneau.repaint();
 			
 			//vue.tracerRectangle(e.getX(), );	

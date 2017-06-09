@@ -7,22 +7,12 @@ public class Collection {
 	
 	Rectangle[] rectangles;
 	
-	Parser parser;
-	
-	
-	
 	private Panneau panneau;
 	
 	
 	public Collection()
 	{
 		rectangles = new Rectangle[0];
-		try {
-			parser = new Parser();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	public boolean contains(int x, int y)
@@ -79,6 +69,20 @@ public class Collection {
 		temp[this.rectangles.length] = r;
 		this.rectangles = temp;
 		
+		return true;
+	}
+	
+	public boolean effacerDernierRectangle()
+	{
+		if (this.rectangles.length == 0) return false;	
+			
+		Rectangle[] temp = new Rectangle[this.rectangles.length - 1];
+		
+		for (int index = 0 ; index < this.rectangles.length -1 ; index++)
+		{
+			temp[index] = rectangles[index];
+		}
+		this.rectangles = temp;		
 		return true;
 	}
 	

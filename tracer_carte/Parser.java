@@ -13,9 +13,9 @@ public class Parser
 {
 	private Collection collection ;
 
-	public Parser () throws IOException
+	public Parser (Collection c) //throws IOException
 	{
-		collection = new Collection();
+		this.collection = c;
 	}
 		
 		
@@ -24,6 +24,8 @@ public class Parser
 	// DEFINITION DU CONSTRUCTEUR DE LA METHODE LECTURE
 	public boolean ecriture(String Carte) throws IOException
 	{
+		
+		
 		// PREPARATION DE L'ECRITURE DANS UN FICHIER CIBLE ENTRE EN ARGUMENT
 		FileWriter resultat = new FileWriter(Carte) ;
 		BufferedWriter tamponEcriture = new BufferedWriter(resultat) ;
@@ -46,12 +48,14 @@ public class Parser
 		tamponEcriture.flush() ;
 		tamponEcriture.close() ;
 		return true ;
+
 	}
 
 	public Collection getCollection()
 	{
 		return collection ;
 	}
+
 	
 // ********** FIN METHODE ECRITURE ***********
 	

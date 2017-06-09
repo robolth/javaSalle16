@@ -15,7 +15,8 @@ import javax.swing.JButton;
 
 public class Vue extends JFrame implements ActionListener, FocusListener {
 	public Panneau panneau ;
-
+	public JButton btnEffacer;
+	public JButton btnEnregistrer;;
 	
 	public Vue()
 	{
@@ -26,28 +27,14 @@ public class Vue extends JFrame implements ActionListener, FocusListener {
 		setContentPane(panneau);
 		panneau.setLayout(new MigLayout("", "[][][][][][][][][][][][][][][][][][][][][][][][][][][]", "[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]"));
 		
-		JButton btnEffacer = new JButton("Effacer");		
-		JButton btnEnregistrer = new JButton("Enregistrer");
+		btnEffacer = new JButton("Effacer");		
+		btnEnregistrer = new JButton("Enregistrer");
 		
-		btnEffacer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		btnEnregistrer.addActionListener(this);
+		btnEffacer.addActionListener(this);
 		
-		btnEnregistrer.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				System.out.println("\n\n               TEST");
-				
-			}
-		});
-		
-		panneau.add(btnEnregistrer, "cell 26 30");
-		panneau.add(btnEffacer, "cell 26 31");
+		panneau.add(btnEnregistrer, "cell 01 01");
+		panneau.add(btnEffacer, "cell 01 02");
 		
 		
 		
@@ -60,8 +47,8 @@ public class Vue extends JFrame implements ActionListener, FocusListener {
 		panneau.addMouseListener(controleur);
 		panneau.addMouseMotionListener(controleur);	
 		
-//		btnEffacer.addActionListener(controleur);
-//		btnEnregistrer.addActionListener(controleur);
+
+//		this.btnEnregistrer.addActionListener(controleur);
 		
 		
 	}
@@ -92,6 +79,28 @@ public class Vue extends JFrame implements ActionListener, FocusListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
+		
+		if (e.getSource() == btnEnregistrer){
+		
+			Parser parser = new Parser(this.panneau.collection);
+		
+		
+			try {
+				parser.ecriture("./Carte.txt");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		
+		}
+		else {
+
+			this.panneau.collection.effacerDernierRectangle();
+			this.panneau.repaint();
+		}
+
+	
+	
 	}
 	
 }
