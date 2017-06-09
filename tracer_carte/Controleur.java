@@ -31,8 +31,23 @@ public class Controleur implements MouseListener, MouseMotionListener
 	@Override
 	public void mouseReleased(MouseEvent e) 
 	{
-		vue.panneau.collection.rectangles[vue.panneau.collection.rectangles.length - 1].locked = true;
 		
+		if	(			!vue.panneau.collection.contains(e.getX(), e.getY()) 
+				&& 	!vue.panneau.collection.intersects(this.vue.panneau.collection.getLatestRectangle())
+			) {
+			vue.panneau.collection.rectangles[vue.panneau.collection.rectangles.length - 1].locked = true;
+		}	
+		else {
+			vue.panneau.collection.getLatestRectangle().resetLastCoordinates();					
+			vue.panneau.collection.rectangles[vue.panneau.collection.rectangles.length - 1].locked = true;
+			vue.panneau.repaint();
+			
+		}
+		
+		
+		
+		
+//		vue.panneau.collection.rectangles[vue.panneau.collection.rectangles.length - 1].locked = true;	
 //		getLatestRectangle().locked = true;
 		
 //		if(vue.panneau.collection.isInside())
@@ -45,43 +60,21 @@ public class Controleur implements MouseListener, MouseMotionListener
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
+
 		
 		if	(			!vue.panneau.collection.contains(e.getX(), e.getY()) 
 				&& 	!vue.panneau.collection.intersects(this.vue.panneau.collection.getLatestRectangle())
 			) {
-				vue.tracerRectangle(e.getX(), e.getY());	
-		}
-
-		
-/*		
+			vue.panneau.collection.getLatestRectangle().updateLastCoordinates();
+				vue.tracerRectangle(e.getX(), e.getY());
+		}	
 		else {
-			
-			System.out.println("\n\n				ELSE");
-			System.out.println("\n\n	locked ?" + vue.panneau.collection.getLatestRectangle().locked);			
-			
+			vue.panneau.collection.getLatestRectangle().resetLastCoordinates();			
+
 			vue.panneau.repaint();
 			
+			//vue.tracerRectangle(e.getX(), );	
 		}
-*/		
-		
-		
-		
-/*		
-		
-		if(		!vue.panneau.collection.contains(e.getX(), e.getY()) )
-		{
-			
-			if(!vue.panneau.collection.intersects(this.vue.panneau.collection.getLatestRectangle()))
-			{
-				vue.tracerRectangle(e.getX(), e.getY());
-			}
-			
-	
-		}
-*/	
-		
-		
-	
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package tracer_carte;
 
 import java.awt.Graphics;
+import java.io.IOException;
+
 import javax.swing.JPanel;
 
 

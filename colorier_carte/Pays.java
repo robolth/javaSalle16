@@ -19,7 +19,7 @@ public class Pays
 	{		
 		super();
 		paletteDisponible=new Palette();
-		couleur = Color.BLACK;
+		couleur = Color.gray;
 
 		dejaColorie = false ;
 		

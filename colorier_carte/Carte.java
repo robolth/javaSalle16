@@ -11,7 +11,7 @@ public class Carte
 	
 	private Panneau panneau;
 	
-	private int sleepTime = 200;
+	private int sleepTime = 100;
 	
 	public Carte()
 	{
@@ -106,7 +106,7 @@ public class Carte
 			System.out.println("Carte.colorier(" + pays.getNom()+ ") : aucune couleur disponible");			
 //			System.out.println("Carte.colorier() -> false");		
 			
-			pays.setCouleur(Color.black);
+			pays.setCouleur(Color.gray);
 			
 			Thread.sleep(sleepTime);
 			this.panneau.repaint();

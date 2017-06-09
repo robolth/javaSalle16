@@ -20,7 +20,7 @@ public class Palette {
 			}
 		}		
 		System.out.println("Palette.premiereCouleurDisponible() : ERREUR");
-		return Color.BLACK;
+		return Color.gray;
 	}
 	
 	
@@ -38,7 +38,7 @@ public class Palette {
 //		this.printCouleurs();		
 		for(int index = 0 ; index < this.couleurs.length; index++) {
 			if(this.couleurs[index] == couleurARetirer){				
-				this.couleurs[index] = Color.BLACK;							
+				this.couleurs[index] = Color.gray;							
 			}			
 		}
 	

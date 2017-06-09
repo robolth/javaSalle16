@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Rectangle
 
 {
-	public int x, y, w, h, xInit, yInit;
+	public int x, y, w, h, xInit, yInit, lastX, lastY, lastW, lastH;
 	public boolean locked;
 	
 //	private Panneau panneau;
@@ -15,10 +15,10 @@ public class Rectangle
 	{
 		this.locked = false;
 		
-		this.x = xd ;
-		this.y = yd ;
-		this.w = xf - xd ;
-		this.h = yf - yd ;
+		this.x = this.lastX = xd ;
+		this.y = this.lastY = yd ;
+		this.w = this.lastW = xf - xd ;
+		this.h = this.lastH = yf - yd ;
 
 		xInit = xd ;
 		yInit = yd ;
@@ -65,7 +65,6 @@ public class Rectangle
 		
 	}
 
-
 	public boolean contains(int x, int y)
 	{
 		if (x > this.x && x < (this.x + this.w) && y > this.y && y < (this.y + this.h))
@@ -87,6 +86,22 @@ public class Rectangle
 		}
 		return false;
 	}
+	
+	
+	public void updateLastCoordinates(){
+		this.lastX = this.x;
+		this.lastY = this.y;
+		this.lastW = this.w;
+		this.lastH = this.h;
+	}
+	
+	public void resetLastCoordinates(){
+		this.x = this.lastX;
+		this.y = this.lastY;
+		this.w = this.lastW;
+		this.h = this.lastH;
+	}	
+	
 	
 	
 }

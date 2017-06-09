@@ -1,17 +1,28 @@
 package tracer_carte;
 
 import java.awt.Graphics;
+import java.io.IOException;
 
 public class Collection {
 	
 	Rectangle[] rectangles;
+	
+	Parser parser;
+	
+	
+	
 	private Panneau panneau;
 	
 	
 	public Collection()
 	{
 		rectangles = new Rectangle[0];
-		
+		try {
+			parser = new Parser();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public boolean contains(int x, int y)
