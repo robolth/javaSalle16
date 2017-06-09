@@ -41,7 +41,7 @@ public class Parser
 			NomRectangle = "P" + Integer.toString(index);
 			
 			// ON RECUPERE LES COORDONNEES DES RECTANGLES	
-			tamponEcriture.write(NomRectangle + "	" + r.x + " 	" + r.y + " 	" + r.x+r.w + " 	" + r.h+r.y + '\n') ;
+			tamponEcriture.write(NomRectangle + " " + Integer.toString(r.x) + " " + Integer.toString(r.y) + " " + Integer.toString(r.x+r.w) + " " + Integer.toString(r.h+r.y) + "\n") ;
 			index ++ ;
 		}
 						

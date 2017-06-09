@@ -1,5 +1,6 @@
 package tracer_carte;
 
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -70,10 +71,15 @@ public class Controleur implements MouseListener, MouseMotionListener
 		}	
 		else {
 			vue.panneau.collection.getLatestRectangle().resetLastCoordinates();			
+
+
+//			Graphics g = panneau.getGraphics();
 			
+//			this.vue.panneau.collection.getLatestRectangle().redimensionner(xFinal,yFinal, g);
+
 			vue.panneau.repaint();
 			
-			//vue.tracerRectangle(e.getX(), );	
+
 		}
 	}
 
